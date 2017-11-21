@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>RailsWikinimous</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +11,32 @@
   </head>
 
   <body>
+    <div class="container">
+      <h1><%= link_to "Wikinimou", articles_path %>  </h1>
+      <div id="charging" class="fa"></div>
+      <script>
+        function chargebattery() {
+          var a;
+          a = document.getElementById("charging");
+          a.innerHTML = "&#xf244;";
+          setTimeout(function () {
+            a.innerHTML = "&#xf243;";
+          }, 1000);
+          setTimeout(function () {
+            a.innerHTML = "&#xf242;";
+          }, 2000);
+          setTimeout(function () {
+            a.innerHTML = "&#xf241;";
+          }, 3000);
+          setTimeout(function () {
+            a.innerHTML = "&#xf240;";
+          }, 4000);
+        }
+        chargebattery();
+        setInterval(chargebattery, 5000);
+        </script>
+      <h3><%= link_to "New article", new_article_path %></h3>
+    </div>
     <%= yield %>
   </body>
 </html>
